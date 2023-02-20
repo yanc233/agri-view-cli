@@ -7,6 +7,7 @@ specifiers:
   commander: ^6.1.0
   inquirer: ^6.5.2
   kolorist: latest
+  rollup: ^3.17.1
   ts-node-dev: ^2.0.0
   typescript: ^4.9.5
 
@@ -15,6 +16,7 @@ dependencies:
   commander: 6.2.1
   inquirer: 6.5.2
   kolorist: 1.7.0
+  rollup: 3.17.1
 
 devDependencies:
   '@types/inquirer': 7.3.3
@@ -275,7 +277,6 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /function-bind/1.1.1:
@@ -488,6 +489,14 @@ packages:
     dependencies:
       glob: 7.2.3
     dev: true
+
+  /rollup/3.17.1:
+    resolution: {integrity: sha512-8RnSms6rNqHmZK+wiqgnPCqen+rRnUHXkciGDirh7B00g1rX1vpKbPDhuxCvAG2bburoI+W4Q9/PlUB/zYkiYA==}
+    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: false
 
   /run-async/2.4.1:
     resolution: {integrity: sha512-tvVnVv01b8c1RrA6Ep7JkStj85Guv/YrMcwqYQnwjsAS2cTmmPGBBjAjpCW7RrSodNSoE2/qg9O4bceNvUuDgQ==}

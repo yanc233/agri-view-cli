@@ -6,10 +6,16 @@
       "declaration": true,
       "noUnusedLocals": true,
       "esModuleInterop": true,
-      "outDir": "../dist",
-      "module": "esnext",
+      "outDir": "./dist",
+      "module": "ESNext",
       "lib": ["esnext"],
-      "sourceMap": true
+      "sourceMap": true,
+      "resolveJsonModule":true,
+      
   },
-  "include": ["."]
+  "include": ["."],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
 }
