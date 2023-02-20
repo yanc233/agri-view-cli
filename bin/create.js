@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { create } from "../src/index.ts";
+import { create } from "../dist/index.cjs";
 
 create();

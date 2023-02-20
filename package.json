@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "./dist/index.js",
   "bin": {
     "agri-create": "./bin/create.js"
   },
+  "scripts": {
+    "build": "unbuild"
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -21,6 +25,7 @@
     "@types/inquirer": "^7.3.1",
     "@types/node": "^18.13.0",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "unbuild": "^1.1.2"
   }
 }
