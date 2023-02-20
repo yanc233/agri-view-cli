@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "bin": {
-    "agri-create": "./bin/create.js"
+    "agri-create": "bin/create.js"
   },
   "scripts": {
     "build": "unbuild"
@@ -15,7 +15,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.2.0",
     "commander": "^6.1.0",
     "inquirer": "^6.5.2",
     "kolorist": "latest",

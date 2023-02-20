@@ -1,7 +1,7 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-15 14:56:28
- * @LastEditTime: 2023-02-15 15:55:07
+ * @LastEditTime: 2023-02-20 19:19:48
  */
 import inquirer from "inquirer";
 import { red, reset } from "kolorist";
@@ -14,18 +14,18 @@ export interface Meta {
 }
 
 export async function prompt(targetDir: string) {
-  const defaultTargetDir = "agri-project";
-
+  const defaultTargetDir = "new-project";
   const questions = [
     {
-      type: targetDir ? null : "text",
       name: "projectName",
+      type: "input",
       message: reset("Project name:"),
       initial: defaultTargetDir,
-      default: defaultTargetDir,
+      default: targetDir ?? defaultTargetDir,
       onState: (state: any) => {
         targetDir = formatTargetDir(state.value) || defaultTargetDir;
       },
+      when: () => !targetDir, // 只在用户没有输入项目名称的时候触发
     },
     {
       name: "template",
@@ -45,11 +45,6 @@ export async function prompt(targetDir: string) {
     {
       name: "description",
       message: "project description",
-      default: "",
-    },
-    {
-      name: "user",
-      message: "your name",
       default: "",
     },
   ];
