@@ -1,10 +1,10 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-15 14:56:28
- * @LastEditTime: 2023-02-20 19:19:48
+ * @LastEditTime: 2023-02-21 18:06:34
  */
 import inquirer from "inquirer";
-import { red, reset } from "kolorist";
+import chalk from "chalk";
 
 export interface Meta {
   projectName: string;
@@ -19,7 +19,7 @@ export async function prompt(targetDir: string) {
     {
       name: "projectName",
       type: "input",
-      message: reset("Project name:"),
+      message: chalk.gray("Project name:"),
       initial: defaultTargetDir,
       default: targetDir ?? defaultTargetDir,
       onState: (state: any) => {
@@ -37,21 +37,24 @@ export async function prompt(targetDir: string) {
           value: "agri-system",
         },
         {
-          name: "lib-monorepo",
-          value: "lib-monorepo",
+          name: "lib-vue",
+          value: "lib-vue",
+        },
+        {
+          name: "lib-ts",
+          value: "lib-ts",
+        },
+        {
+          name: "lib-ts-monorepo",
+          value: "lib-ts-monorepo",
         },
       ],
-    },
-    {
-      name: "description",
-      message: "project description",
-      default: "",
     },
   ];
 
   const meta: Meta = await inquirer.prompt(questions, {
     onCancel: () => {
-      throw new Error(red("✖") + " Operation cancelled");
+      throw new Error(chalk.red("✖") + " Operation cancelled");
     },
   });
 

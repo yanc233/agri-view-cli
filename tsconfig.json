@@ -7,15 +7,12 @@
       "noUnusedLocals": true,
       "esModuleInterop": true,
       "outDir": "./dist",
-      "module": "ESNext",
+       "module": "ESNext",
       "lib": ["esnext"],
       "sourceMap": true,
       "resolveJsonModule":true,
-      
+
   },
   "include": ["."],
-  "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node"
-  }
+  
 }

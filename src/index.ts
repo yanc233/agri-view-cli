@@ -1,15 +1,15 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-15 14:56:15
- * @LastEditTime: 2023-02-20 19:56:45
+ * @LastEditTime: 2023-02-21 18:45:03
  */
 import program from "commander";
 import { prompt } from "./prompt";
 import { generator } from "./generator";
-import packageJson from "../package.json";
-// import { createDir } from "./createDir";
+import { version } from "../package.json";
+import { createDir } from "./createDir";
 
-program.version(packageJson.version, "-v --version");
+program.version(version, "-v --version");
 
 export async function create() {
   program.usage("<project-name>").parse(process.argv);
@@ -22,11 +22,21 @@ export async function create() {
     const meta = await prompt(argProjectName);
 
     // createdFile = await createDir(meta);
+    await createDir(meta);
 
-    await generator(meta);
-
-    console.log(meta);
-  } catch (error) {}
+    const url = await generator(meta);
+    console.log(
+      "%c [ url ]-28",
+      "font-size:13px; background:pink; color:#bf2c9f;",
+      url
+    );
+  } catch (error) {
+    console.log(
+      "%c [ url ]-28",
+      "font-size:13px; background:pink; color:#bf2c9f;",
+      error
+    );
+  }
 
   //  console.log(`\n🎉  Successfully created project ${meta.projectName}.`);
 }

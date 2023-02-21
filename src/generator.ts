@@ -1,30 +1,31 @@
-import { src, dest } from "gulp";
+/*
+ * @Author: Yanc
+ * @Date: 2023-02-20 19:29:02
+ * @LastEditTime: 2023-02-21 19:03:23
+ */
+import gulp from "gulp";
 import replace from "gulp-replace";
-import { resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "path";
+import { fileURLToPath } from "url";
 import { Meta } from "./prompt";
 
 export async function generator(meta: Meta) {
-  const templateDir = resolve(
-    // @ts-ignore
-    fileURLToPath(import.meta.url),
-    "../templates",
-    meta.template
+  const templateDir = join(
+    fileURLToPath(import.meta.url), // 这里为啥要这样写是因为 在esm环境下的node 不能使用__direname
+    `../../templates/${meta.template}`
   );
 
-  console.log(templateDir);
-
-  // return new Promise((resolve, reject) => {
-  //   src([`${templateDir}/**/**`, "!node_modules"], { dot: true })
-  //     .pipe(replace("@{projectName}", meta.projectName))
-  //     .pipe(replace("@{description}", meta.description))
-  //     .pipe(replace("@{user}", meta.user))
-  //     .pipe(dest(meta.projectName))
-  //     .on("error", (err) => {
-  //       reject(err);
-  //     })
-  //     .on("end", () => {
-  //       resolve(true);
-  //     });
-  // });
+  return new Promise((resolve, reject) => {
+    gulp
+      .src([`${templateDir}/**`, "!node_modules"], { dot: true })
+      .pipe(replace("@{projectName}", meta.projectName))
+      .pipe(replace("@{description}", meta.description))
+      .pipe(gulp.dest(meta.projectName))
+      .on("error", (err) => {
+        reject(err);
+      })
+      .on("end", () => {
+        resolve(templateDir);
+      });
+  });
 }
