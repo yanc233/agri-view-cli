@@ -1,7 +1,7 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-20 19:29:02
- * @LastEditTime: 2023-02-21 19:03:23
+ * @LastEditTime: 2023-02-22 09:33:02
  */
 import gulp from "gulp";
 import replace from "gulp-replace";
@@ -11,7 +11,7 @@ import { Meta } from "./prompt";
 
 export async function generator(meta: Meta) {
   const templateDir = join(
-    fileURLToPath(import.meta.url), // 这里为啥要这样写是因为 在esm环境下的node 不能使用__direname
+    fileURLToPath(import.meta.url), // 在esm环境下的node 不能使用__direname
     `../../templates/${meta.template}`
   );
 
@@ -25,7 +25,7 @@ export async function generator(meta: Meta) {
         reject(err);
       })
       .on("end", () => {
-        resolve(templateDir);
+        resolve(true);
       });
   });
 }
