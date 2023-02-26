@@ -1,20 +1,21 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-20 19:34:36
- * @LastEditTime: 2023-02-22 09:42:07
+ * @LastEditTime: 2023-02-26 21:37:42
  */
-import { globby } from "globby";
-import { mkdirSync } from "fs";
+// import { globby } from "globby";
+import { mkdirSync, readdirSync, statSync } from "fs";
+import { join } from "path";
 import { Meta } from "./prompt";
 
 async function checkDir(name: string) {
   // 一个支持glob匹配模式的文件查找库
-  const list = await globby("*", { onlyDirectories: true });
+  // const list = await globby("*", { onlyDirectories: true });
 
   // Node API
-  // const list = readdirSync("./").filter((file) =>
-  //   statSync(join("./", file)).isDirectory()
-  // );
+  const list = readdirSync("./").filter((file) =>
+    statSync(join("./", file)).isDirectory()
+  );
 
   if (list.includes(name)) {
     const msg = `Directory ${name} already exists.`;

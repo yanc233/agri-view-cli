@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { create } from "../dist/index.js";
+import { create } from "../dist/index.mjs";
 
 create();

@@ -1,7 +1,7 @@
 /*
  * @Author: Yanc
  * @Date: 2023-02-15 14:56:28
- * @LastEditTime: 2023-02-21 18:06:34
+ * @LastEditTime: 2023-02-26 21:00:52
  */
 import inquirer from "inquirer";
 import chalk from "chalk";
@@ -14,7 +14,7 @@ export interface Meta {
 }
 
 export async function prompt(targetDir: string) {
-  const defaultTargetDir = "new-project";
+  const defaultTargetDir = "agriview-project";
   const questions = [
     {
       name: "projectName",
