@@ -1,0 +1,5 @@
+/*.json
+/*.js
+dist
+src/views/map
+src/components/cloudv-uploader

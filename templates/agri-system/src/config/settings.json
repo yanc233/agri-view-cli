@@ -1,0 +1,16 @@
+{
+  "theme": "light",
+  "colorWeek": false,
+  "navbar": true,
+  "menu": true,
+  "topMenu": false,
+  "iconSource": "https://at.alicdn.com/t/c/font_3881738_aoguieai6pq.js",
+  "hideMenu": false,
+  "menuCollapse": false,
+  "footer": true,
+  "breadcrumb": true,
+  "themeColor": "#165DFF",
+  "menuWidth": 220,
+  "globalSettings": false,
+  "device": "desktop"
+}
